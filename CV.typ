@@ -1,8 +1,6 @@
 #import "@preview/modern-resume:1.0.0": modern-resume, experience, project, pill
-
-
-#let todo(msg) = text(fill: red, weight: "bold")[[#msg]]
-
+#let ROL = "data_engineer"
+#let data = json("parameters.json").at(ROL)
 #let custom-theme = (
   primary: rgb("#313C4E"),
   secondary: rgb("#222A33"),
@@ -17,15 +15,16 @@
 
 #show: modern-resume.with(
   author: "Remco Bomhof",
-  job-title: "Data Engineer",
-  bio: [Data engineer met een achtergrond in audit en finance. ],
+  job-title: data.title,
+  bio: data.intro_text,
 
   avatar: image("professionele profielfoto.jpg"),
   contact-options: (
     email: link("mailto:remcobomhof1@gmail.com")[remcobomhof1\@gmail.com],
     mobile: "06 37193256",
     location: "Heerlen",
-    linkedin: link("www.linkedin.com/in/remco-bomhof-881306139")
+    linkedin: link("www.linkedin.com/in/remco-bomhof-881306139")[Remco Bomhof],
+    github: link("https://github.com/Fotonwarrior")[Fotonwarrior]
   ),
   theme: custom-theme,
 )
